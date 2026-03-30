@@ -1,0 +1,132 @@
+{
+  "info": {
+    "name": "Employee Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080/api" },
+    { "key": "employeeId", "value": "1" },
+    { "key": "departmentId", "value": "1" }
+  ],
+  "item": [
+    {
+      "name": "Departments",
+      "item": [
+        {
+          "name": "Create Department",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/departments" },
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"Engineering\"\n}" }
+          }
+        },
+        {
+          "name": "Get All Departments",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/departments" }
+          }
+        },
+        {
+          "name": "Get Department By Id",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/departments/{{departmentId}}" }
+          }
+        },
+        {
+          "name": "Update Department",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/departments/{{departmentId}}" },
+            "body": { "mode": "raw", "raw": "{\n  \"name\": \"HR\"\n}" }
+          }
+        },
+        {
+          "name": "Delete Department",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/departments/{{departmentId}}" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Employees",
+      "item": [
+        {
+          "name": "Create Employee",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/employees" },
+            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"departmentId\": {{departmentId}}\n}" }
+          }
+        },
+        {
+          "name": "Get All Employees",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/employees?page=1&size=10&sortField=id&sortDirection=ASC",
+              "query": [
+                { "key": "page", "value": "1" },
+                { "key": "size", "value": "10" },
+                { "key": "sortField", "value": "id" },
+                { "key": "sortDirection", "value": "ASC" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Employees By Department",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/employees?departmentId={{departmentId}}&page=1&size=10",
+              "query": [
+                { "key": "departmentId", "value": "{{departmentId}}" },
+                { "key": "page", "value": "1" },
+                { "key": "size", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Employee By Id",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/employees/{{employeeId}}" }
+          }
+        },
+        {
+          "name": "Update Employee",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/employees/{{employeeId}}" },
+            "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"email\": \"john.smith@example.com\",\n  \"departmentId\": {{departmentId}}\n}" }
+          }
+        },
+        {
+          "name": "Patch Employee",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/employees/{{employeeId}}" },
+            "body": { "mode": "raw", "raw": "{\n  \"email\": \"newemail@example.com\"\n}" }
+          }
+        },
+        {
+          "name": "Delete Employee",
+          "request": {
+            "method": "DELETE",
+            "url": { "raw": "{{baseUrl}}/employees/{{employeeId}}" }
+          }
+        }
+      ]
+    }
+  ]
+}
