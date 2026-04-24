@@ -17,7 +17,11 @@
           "request": {
             "method": "POST",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "{{baseUrl}}/departments" },
+            "url": {
+              "raw": "{{baseUrl}}/departments",
+              "host": ["{{baseUrl}}"],
+              "path": ["departments"]
+            },
             "body": { "mode": "raw", "raw": "{\n  \"name\": \"Engineering\"\n}" }
           }
         },
@@ -25,14 +29,22 @@
           "name": "Get All Departments",
           "request": {
             "method": "GET",
-            "url": { "raw": "{{baseUrl}}/departments" }
+            "url": {
+              "raw": "{{baseUrl}}/departments",
+              "host": ["{{baseUrl}}"],
+              "path": ["departments"]
+            }
           }
         },
         {
           "name": "Get Department By Id",
           "request": {
             "method": "GET",
-            "url": { "raw": "{{baseUrl}}/departments/{{departmentId}}" }
+            "url": {
+              "raw": "{{baseUrl}}/departments/{{departmentId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["departments", "{{departmentId}}"]
+            }
           }
         },
         {
@@ -40,7 +52,11 @@
           "request": {
             "method": "PUT",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "{{baseUrl}}/departments/{{departmentId}}" },
+            "url": {
+              "raw": "{{baseUrl}}/departments/{{departmentId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["departments", "{{departmentId}}"]
+            },
             "body": { "mode": "raw", "raw": "{\n  \"name\": \"HR\"\n}" }
           }
         },
@@ -48,7 +64,11 @@
           "name": "Delete Department",
           "request": {
             "method": "DELETE",
-            "url": { "raw": "{{baseUrl}}/departments/{{departmentId}}" }
+            "url": {
+              "raw": "{{baseUrl}}/departments/{{departmentId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["departments", "{{departmentId}}"]
+            }
           }
         }
       ]
@@ -61,7 +81,11 @@
           "request": {
             "method": "POST",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "{{baseUrl}}/employees" },
+            "url": {
+              "raw": "{{baseUrl}}/employees",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees"]
+            },
             "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"john.doe@example.com\",\n  \"departmentId\": {{departmentId}}\n}" }
           }
         },
@@ -71,6 +95,8 @@
             "method": "GET",
             "url": {
               "raw": "{{baseUrl}}/employees?page=1&size=10&sortField=id&sortDirection=ASC",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees"],
               "query": [
                 { "key": "page", "value": "1" },
                 { "key": "size", "value": "10" },
@@ -86,6 +112,8 @@
             "method": "GET",
             "url": {
               "raw": "{{baseUrl}}/employees?departmentId={{departmentId}}&page=1&size=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees"],
               "query": [
                 { "key": "departmentId", "value": "{{departmentId}}" },
                 { "key": "page", "value": "1" },
@@ -98,7 +126,11 @@
           "name": "Get Employee By Id",
           "request": {
             "method": "GET",
-            "url": { "raw": "{{baseUrl}}/employees/{{employeeId}}" }
+            "url": {
+              "raw": "{{baseUrl}}/employees/{{employeeId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees", "{{employeeId}}"]
+            }
           }
         },
         {
@@ -106,7 +138,11 @@
           "request": {
             "method": "PUT",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "{{baseUrl}}/employees/{{employeeId}}" },
+            "url": {
+              "raw": "{{baseUrl}}/employees/{{employeeId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees", "{{employeeId}}"]
+            },
             "body": { "mode": "raw", "raw": "{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"email\": \"john.smith@example.com\",\n  \"departmentId\": {{departmentId}}\n}" }
           }
         },
@@ -115,7 +151,11 @@
           "request": {
             "method": "PATCH",
             "header": [{ "key": "Content-Type", "value": "application/json" }],
-            "url": { "raw": "{{baseUrl}}/employees/{{employeeId}}" },
+            "url": {
+              "raw": "{{baseUrl}}/employees/{{employeeId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees", "{{employeeId}}"]
+            },
             "body": { "mode": "raw", "raw": "{\n  \"email\": \"newemail@example.com\"\n}" }
           }
         },
@@ -123,7 +163,11 @@
           "name": "Delete Employee",
           "request": {
             "method": "DELETE",
-            "url": { "raw": "{{baseUrl}}/employees/{{employeeId}}" }
+            "url": {
+              "raw": "{{baseUrl}}/employees/{{employeeId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["employees", "{{employeeId}}"]
+            }
           }
         }
       ]
