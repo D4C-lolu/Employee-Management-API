@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: first-api
+  template:
+    metadata:
+      labels:
+        app: first-api
+    spec:
+      containers:
+        - name: first-api
+          image: demiladeokeowo/first-api:latest
+          ports:
+            - containerPort: 8080
